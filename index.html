@@ -1,134 +1,667 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farah Jemal — Data & BI Analyst</title>
+  <meta name="description" content="Portfolio de Farah Jemal — Étudiante en Business Intelligence, passionnée par la data, le design et les nouvelles technologies." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#F0EDE8" />
 
-<title>Farah Jemal — Data Analysis • BI • Testing</title>
+  <!-- Open Graph (aperçu lors d'un partage LinkedIn / WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Farah Jemal — Data & BI Analyst" />
+  <meta property="og:description" content="Je transforme la donnée en décision, et le design en expérience." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231A1614'/%3E%3Ctext x='50' y='66' font-size='48' text-anchor='middle' fill='%23C9A882' font-family='Georgia,serif'%3EFJ%3C/text%3E%3C/svg%3E" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&family=Cormorant+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Thème appliqué AVANT l'affichage : évite le flash clair → sombre -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('fj-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      try {
+        if (sessionStorage.getItem('fj-loader') === '1') {
+          document.documentElement.classList.add('no-loader');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
- <link rel="stylesheet" href="style.css">
+  <!-- Si JavaScript est désactivé : le site reste lisible -->
+  <noscript>
+    <style>
+      #loader, #cursor { display: none !important; }
+      .reveal-fade, .reveal-up, .reveal-project, .char { opacity: 1 !important; transform: none !important; }
+      .timeline__line { transform: none !important; }
+    </style>
+  </noscript>
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<div class="page-number">01</div>
-
-<nav>
-  <ul>
-    <li><a href="#home">HOME</a></li>
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#skills">SKILLS</a></li>
-    <li><a href="#projects">PROJECTS</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-  </ul>
-</nav>
-
-<!-- 01 — Home -->
-<section id="home">
-  <div class="hero-wrapper">
-    <div class="hero-text">
-      <div class="hero-name"> <span class="name-first">Farah</span> 
-        <span class="name-last">Jemal</span> <div class="hero-ornament"></div> 
-       </div>
-      <div class="hero-subtitle">
-        Data Analysis • UI/UX Design (Figma) • Data Science
+  <!-- ░░ LOADER ░░ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__label">INITIALIZING PORTFOLIO</div>
+      <div class="loader__counter">
+        <span class="loader__num" id="loaderNum">00</span>
       </div>
-      <a href="https://www.upwork.com/freelancers/~01c43ff552d725bf32?mp_source=share" target="_blank" class="upwork-badge">
-        Disponible sur Upwork
-      </a>
+      <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
     </div>
-    <div class="hero-photo">
-      <img src="images/photo.jpg" alt="Farah Jemal">
-    </div>
+    <div class="loader__reveal" id="loaderReveal"></div>
   </div>
-</section>
 
-<!-- 02 — About -->
-<section id="about">
-  <div class="about-content">
-    <p>
-      Analyste de données junior, basée à Ariana (Tunisie), spécialisée dans l'analyse et la valorisation des données pour l'aide à la décision. Maîtrise des outils Power BI, SQL et Python pour la conception de tableaux de bord analytiques et la réalisation d'analyses précises. <br>
-      Dotée d'une expertise en UI/UX Design sur Figma, je conçois des dashboards ergonomiques, clairs et orientés utilisateur, alliant performance analytique et qualité visuelle. <br>
-      Actuellement étudiante en 2ᵉ année Informatique de Gestion, spécialité Business Intelligence à l'Institut des Hautes Études Commerciales de Carthage (IHEC Carthage), je développe des compétences solides en analyse de données, visualisation et systèmes décisionnels.
-    </p>
-    <div class="about-signature">fj.</div>
+  <!-- ░░ CURSOR ░░ -->
+  <div id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+    <span class="cursor__label">VIEW</span>
   </div>
-</section>
 
-<!-- 03 — Skills -->
-<section id="skills">
-  <div class="skill-grid">
-    <div class="skill-card">
-      <h3>Data & BI</h3>
-      <p>SQL avancé • Power BI • DAX • Excel expert • Data Modeling • Dashboard Design</p>
-    </div>
-    <div class="skill-card">
-  <h3>UI/UX Design</h3>
-  <p>Figma • Wireframing • Prototyping • User Interface • User Experience • Design Systems</p>
-</div>
-    <div class="skill-card">
-      <h3>Programmation</h3>
-      <p>C • Python (Jupyter) • Java (Basics) • Linux (Shell scripting) • HTML • CSS • JavaScript</p>
+  <!-- ░░ PROGRESS ░░ -->
+  <div id="scrollProgress" aria-hidden="true"></div>
 
-    </div>
-  </div>
-</section>
-
-<!-- 04 — Projects -->
-<section id="projects">
-  <div class="projects-grid">
-    <a href="https://github.com/farah-jemal/carte-tunisie.git" target="_blank" class="project-card">
-      <img src="https://images.pexels.com/photos/14553709/pexels-photo-14553709.jpeg?auto=compress&cs=tinysrgb&w=638" alt="coding">
-      <div class="project-info">
-        <h3>Carte Interactive des Gouvernorats de la Tunisie</h3>
-        <p>Projet web interactif permettant d'explorer les 24 gouvernorats de la Tunisie grâce à une carte cliquable affichant des informations et des images en temps réel.</p>
-        <div class="github-link">Voir projet →</div>
-      </div>
+  <!-- ░░ NAV ░░ -->
+  <nav id="nav" aria-label="Navigation principale">
+    <a href="#hero" class="nav__logo" aria-label="Farah Jemal — Accueil">
+      <span class="nav__logo-f">F</span><span class="nav__logo-j">J</span>
     </a>
-    <a href="https://github.com/farah-jemal/MyJavaProject.git" target="_blank" class="project-card">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=85" alt="Analyse CLV">
-      <div class="project-info">
-        <h3>MyJavaProject - Gestion centralisée des évaluations IHEC</h3>
-        <p>Application desktop JavaFX permettant aux étudiants et enseignants de consulter, déposer et administrer les évaluations et leurs corrigés de manière centralisée, sécurisée et filtrable par filière, niveau et matière.</p>
-        <div class="github-link">Voir projet →</div>
-      </div>
-    </a>
-  </div>
-</section>
 
-<!-- 05 — Contact -->
-<section id="contact">
-  <div class="contact-wrapper">
-    <div class="contact-form">
-      <h2>Contactez-moi</h2>
-      <form >
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-        <button onclick="analyseForm()">Envoyer</button>
-      </form>
-    </div>
-    <div class="contact-details">
-      <h2>Détails</h2>
-      <p>Email: farahjmal45@gmail.com</p>
-      <p><a href="https://www.linkedin.com/in/farah-jmal-0a431933b/" target="_blank">LinkedIn →</a></p>
-      <p><a href="https://www.upwork.com/freelancers/~01c43ff552d725bf32?mp_source=share" target="_blank">Upwork →</a></p>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.123456789012!2d10.181111!3d36.866667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34b8b8b8b8b8%3A0x123456789abcdef!2sAriana%2C%20Tunisie!5e0!3m2!1sfr!2s!4v1234567890123!5m2!1sfr!2s" allowfullscreen="" loading="lazy"></iframe>
+    <ul class="nav__links" role="list">
+      <li><a href="#work" class="nav__link" data-section="work" data-lang-fr="Projets" data-lang-en="Projects">Projets</a></li>
+      <li><a href="#skills" class="nav__link" data-section="skills" data-lang-fr="Expertises" data-lang-en="Skills">Expertises</a></li>
+      <li><a href="#about" class="nav__link" data-section="about" data-lang-fr="Profil" data-lang-en="Profile">Profil</a></li>
+      <li><a href="#experience" class="nav__link" data-section="experience" data-lang-fr="Expérience" data-lang-en="Experience">Expérience</a></li>
+      <li><a href="#cv" class="nav__link" data-section="cv" data-lang-fr="CV" data-lang-en="Résumé">CV</a></li>
+      <li><a href="#contact" class="nav__link" data-section="contact" data-lang-fr="Contact" data-lang-en="Contact">Contact</a></li>
+    </ul>
+
+    <div class="nav__tools">
+      <button class="theme-toggle" type="button" aria-label="Activer le mode sombre">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <div class="nav__lang">
+        <button class="lang-btn active" type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <span aria-hidden="true">/</span>
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
+
+    <button class="nav__toggle" id="navToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobileMenu" aria-hidden="true">
+    <ul role="list">
+      <li><a href="#work" class="mobile-link" data-i="01" data-lang-fr="Projets" data-lang-en="Projects">Projets</a></li>
+      <li><a href="#skills" class="mobile-link" data-i="02" data-lang-fr="Expertises" data-lang-en="Skills">Expertises</a></li>
+      <li><a href="#about" class="mobile-link" data-i="03" data-lang-fr="Profil" data-lang-en="Profile">Profil</a></li>
+      <li><a href="#experience" class="mobile-link" data-i="04" data-lang-fr="Expérience" data-lang-en="Experience">Expérience</a></li>
+      <li><a href="#cv" class="mobile-link" data-i="05" data-lang-fr="CV" data-lang-en="Résumé">CV</a></li>
+      <li><a href="#contact" class="mobile-link" data-i="06" data-lang-fr="Contact" data-lang-en="Contact">Contact</a></li>
+    </ul>
+
+    <!-- Langue + thème accessibles aussi sur mobile -->
+    <div class="mobile-controls">
+      <div class="nav__lang">
+        <button class="lang-btn active" type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <span aria-hidden="true">/</span>
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Activer le mode sombre">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-foot">
+      <span>farahjmal45@gmail.com</span>
+      <div class="mobile-socials">
+        <a href="https://linkedin.com/in/farah-jemal-0a431933b" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/farah-jemal" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<footer>
-  FARAH JEMAL — Ariana, Tunisie — 2026
-</footer>
+  <main>
 
-<script src="cv.js"></script>
+    <!-- ░░ HERO ░░ -->
+    <section id="hero" aria-label="Introduction">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
 
+      <div class="hero__content">
+        <div class="hero__tag reveal-fade" data-lang-fr="Analyse de données · Design · Technologie" data-lang-en="Data Analysis · Design · Technology">
+          Analyse de données · Design · Technologie
+        </div>
+
+        <h1 class="hero__title" aria-label="Farah Jemal">
+          <span class="hero__line" aria-hidden="true">
+            <span class="hero__word split-chars">Farah</span>
+          </span>
+          <span class="hero__line" aria-hidden="true">
+            <span class="hero__word split-chars hero__name-last">Jemal</span>
+          </span>
+        </h1>
+
+        <div class="hero__role reveal-fade">
+          <span class="role__static" data-lang-fr="Étudiante en" data-lang-en="Student in">Étudiante en</span>
+          <span class="role__rotating" id="roleRotating">Business Intelligence</span>
+        </div>
+
+        <p class="hero__sub reveal-fade"
+           data-lang-fr="Je transforme la donnée en décision,<br>et le design en expérience."
+           data-lang-en="I transform data into decisions,<br>and design into experience.">
+          Je transforme la donnée en décision,<br>et le design en expérience.
+        </p>
+
+        <div class="hero__scroll reveal-fade">
+          <span data-lang-fr="Défiler" data-lang-en="Scroll">Défiler</span>
+          <div class="hero__scroll-line" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="hero__meta" aria-hidden="true">
+        <div class="hero__meta-item">
+          <span class="meta-label">LOC</span>
+          <span class="meta-val">Tunis, TN</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="meta-label">STATUS</span>
+          <span class="meta-val meta-pulse" data-lang-fr="Disponible" data-lang-en="Available">Disponible</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ MANIFESTO ░░ -->
+    <section class="manifesto" id="manifesto" aria-label="Manifeste">
+      <div class="manifesto__inner">
+        <p class="manifesto__text" id="manifestoText"
+           data-lang-fr="Je ne construis pas seulement des dashboards. Je conçois des récits qui aident les organisations à comprendre leur propre histoire — en données."
+           data-lang-en="I don't just build dashboards. I craft narratives that help organizations understand their own story — in data.">
+          Je ne construis pas seulement des dashboards. Je conçois des récits qui aident les organisations à comprendre leur propre histoire — en données.
+        </p>
+      </div>
+    </section>
+
+    <!-- ░░ STATS ░░ -->
+    <section class="stats" aria-label="Chiffres clés">
+      <div class="stats__grid">
+        <div class="stat reveal-up">
+          <span class="stat__num" data-target="3">0</span><span class="stat__suffix">+</span>
+          <span class="stat__label" data-lang-fr="Années de formation" data-lang-en="Years of training">Années de formation</span>
+        </div>
+        <div class="stat reveal-up" style="--delay:.1s">
+          <span class="stat__num" data-target="5">0</span>
+          <span class="stat__label" data-lang-fr="Projets réalisés" data-lang-en="Projects completed">Projets réalisés</span>
+        </div>
+        <div class="stat reveal-up" style="--delay:.2s">
+          <span class="stat__num" data-target="2">0</span>
+          <span class="stat__label" data-lang-fr="Stages effectués" data-lang-en="Internships">Stages effectués</span>
+        </div>
+        <div class="stat reveal-up" style="--delay:.3s">
+          <span class="stat__num" data-target="4">0</span>
+          <span class="stat__label" data-lang-fr="Certifications" data-lang-en="Certifications">Certifications</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ WORK ░░ -->
+    <section class="work" id="work" aria-label="Projets sélectionnés">
+      <div class="section-header reveal-fade">
+        <span class="section-eyebrow" data-lang-fr="Travaux sélectionnés" data-lang-en="Selected work">Travaux sélectionnés</span>
+        <h2 class="section-title" data-lang-fr="Projets" data-lang-en="Projects">Projets</h2>
+      </div>
+
+      <div class="work__list">
+
+        <!-- Project 1 -->
+        <article class="project project--wide reveal-project" data-cursor="view"
+                 aria-label="Carte Interactive des Gouvernorats de Tunisie">
+          <div class="project__visual">
+            <div class="project__placeholder" aria-hidden="true">
+              <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="380" fill="#1A1614"/>
+                <path d="M 200 60 Q 280 40 340 80 L 360 140 Q 380 200 350 260 L 310 320 Q 270 360 230 340 L 200 300 Q 160 240 170 180 Z"
+                      fill="none" stroke="#C9A882" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="240" cy="130" r="3" fill="#C9A882"/>
+                <circle cx="280" cy="110" r="3" fill="#C9A882"/>
+                <circle cx="310" cy="150" r="4" fill="#C9A882" opacity="0.9"/>
+                <circle cx="295" cy="190" r="2.5" fill="#C9A882"/>
+                <circle cx="260" cy="220" r="3" fill="#C9A882"/>
+                <circle cx="230" cy="250" r="2" fill="#C9A882"/>
+                <circle cx="310" cy="240" r="2" fill="#C9A882"/>
+                <circle cx="270" cy="270" r="3" fill="#C9A882"/>
+                <line x1="0" y1="190" x2="600" y2="190" stroke="#C9A882" stroke-width="0.3" opacity="0.2"/>
+                <line x1="300" y1="0" x2="300" y2="380" stroke="#C9A882" stroke-width="0.3" opacity="0.2"/>
+                <text x="420" y="80" fill="#C9A882" font-family="Inter" font-size="10" opacity="0.5" letter-spacing="2">INTERACTIVE</text>
+                <text x="420" y="95" fill="#C9A882" font-family="Inter" font-size="10" opacity="0.5" letter-spacing="2">MAP</text>
+              </svg>
+            </div>
+            <div class="project__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="project__info">
+            <div class="project__meta">
+              <span class="project__num">01</span>
+              <span class="project__category" data-lang-fr="Web Interactif · Cartographie" data-lang-en="Interactive Web · Mapping">Web Interactif · Cartographie</span>
+            </div>
+            <h3 class="project__title">
+              <span data-lang-fr="Carte des Gouvernorats" data-lang-en="Governorates Map">Carte des Gouvernorats</span>
+            </h3>
+            <p class="project__desc"
+               data-lang-fr="Application web interactive explorant les 24 gouvernorats de Tunisie. Informations et visuels dynamiques par région, avec une interface fluide et responsive."
+               data-lang-en="Interactive web app exploring Tunisia's 24 governorates. Dynamic region-specific information and visuals, with a smooth responsive interface.">
+              Application web interactive explorant les 24 gouvernorats de Tunisie. Informations et visuels dynamiques par région, avec une interface fluide et responsive.
+            </p>
+            <div class="project__tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project__links">
+              <a href="https://github.com/farah-jemal/carte-tunisie" target="_blank" rel="noopener"
+                 data-lang-fr="Voir le code" data-lang-en="View code">Voir le code</a>
+              <a href="https://farah-jemal.github.io/carte-tunisie/" target="_blank" rel="noopener"
+                 data-lang-fr="Voir la démo" data-lang-en="Live demo">Voir la démo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project project--split reveal-project" data-cursor="view"
+                 aria-label="Tableaux de bord analytiques Power BI">
+          <div class="project__visual">
+            <div class="project__placeholder" aria-hidden="true">
+              <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="380" fill="#110F0D"/>
+                <rect x="60" y="220" width="50" height="120" fill="#C9A882" opacity="0.9" rx="2"/>
+                <rect x="130" y="160" width="50" height="180" fill="#C9A882" opacity="0.7" rx="2"/>
+                <rect x="200" y="190" width="50" height="150" fill="#C9A882" opacity="0.5" rx="2"/>
+                <rect x="270" y="130" width="50" height="210" fill="#C9A882" opacity="0.9" rx="2"/>
+                <rect x="340" y="170" width="50" height="170" fill="#C9A882" opacity="0.6" rx="2"/>
+                <polyline points="420,260 460,200 500,230 540,170" fill="none" stroke="#C9A882" stroke-width="2" opacity="0.8"/>
+                <circle cx="420" cy="260" r="4" fill="#C9A882"/>
+                <circle cx="460" cy="200" r="4" fill="#C9A882"/>
+                <circle cx="500" cy="230" r="4" fill="#C9A882"/>
+                <circle cx="540" cy="170" r="4" fill="#C9A882"/>
+                <rect x="60" y="50" width="160" height="70" fill="#C9A882" opacity="0.08" rx="4"/>
+                <text x="80" y="80" fill="#C9A882" font-family="Inter" font-size="22" font-weight="600" opacity="0.9">84%</text>
+                <text x="80" y="100" fill="#C9A882" font-family="Inter" font-size="9" opacity="0.4" letter-spacing="1.5">PERFORMANCE</text>
+                <text x="60" y="145" fill="#F0EDE8" font-family="Inter" font-size="9" opacity="0.2" letter-spacing="2">POWER BI · DAX · SQL</text>
+              </svg>
+            </div>
+            <div class="project__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="project__info">
+            <div class="project__meta">
+              <span class="project__num">02</span>
+              <span class="project__category" data-lang-fr="Business Intelligence · Data" data-lang-en="Business Intelligence · Data">Business Intelligence · Data</span>
+            </div>
+            <h3 class="project__title">
+              <span data-lang-fr="Dashboards Analytiques" data-lang-en="Analytical Dashboards">Dashboards Analytiques</span>
+            </h3>
+            <p class="project__desc"
+               data-lang-fr="Conception de modèles de données et dashboards interactifs Power BI pour l'aide à la décision. Formules DAX avancées et requêtes SQL pour la transformation des données."
+               data-lang-en="Data model design and interactive Power BI dashboards for decision support. Advanced DAX formulas and SQL queries for data transformation.">
+              Conception de modèles de données et dashboards interactifs Power BI pour l'aide à la décision. Formules DAX avancées et requêtes SQL pour la transformation des données.
+            </p>
+            <div class="project__tags">
+              <span>Power BI</span><span>DAX</span><span>SQL</span><span>Excel</span>
+            </div>
+            <div class="project__links">
+              <a href="https://github.com/farah-jemal/datascience-farah-jemal" target="_blank" rel="noopener"
+                 data-lang-fr="Voir le projet" data-lang-en="View project">Voir le projet</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project project--portrait reveal-project" data-cursor="view"
+                 aria-label="MyJavaProject — Gestion des évaluations IHEC">
+          <div class="project__visual">
+            <div class="project__placeholder" aria-hidden="true">
+              <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+                <rect width="600" height="380" fill="#130F0C"/>
+                <rect x="80" y="60" width="440" height="280" fill="#1A1614" rx="8" stroke="#C9A882" stroke-width="0.5" opacity="0.6"/>
+                <rect x="80" y="60" width="440" height="32" fill="#C9A882" opacity="0.12" rx="8"/>
+                <circle cx="106" cy="76" r="5" fill="#C9A882" opacity="0.3"/>
+                <circle cx="126" cy="76" r="5" fill="#C9A882" opacity="0.3"/>
+                <circle cx="146" cy="76" r="5" fill="#C9A882" opacity="0.3"/>
+                <rect x="100" y="110" width="400" height="24" fill="#C9A882" opacity="0.06" rx="2"/>
+                <rect x="100" y="144" width="400" height="24" fill="#C9A882" opacity="0.03" rx="2"/>
+                <rect x="100" y="178" width="400" height="24" fill="#C9A882" opacity="0.06" rx="2"/>
+                <rect x="100" y="212" width="400" height="24" fill="#C9A882" opacity="0.03" rx="2"/>
+                <rect x="100" y="246" width="400" height="24" fill="#C9A882" opacity="0.06" rx="2"/>
+                <text x="110" y="127" fill="#C9A882" font-family="Inter" font-size="8" opacity="0.8" letter-spacing="1">MATIÈRE</text>
+                <text x="230" y="127" fill="#C9A882" font-family="Inter" font-size="8" opacity="0.8" letter-spacing="1">NOTE</text>
+                <text x="330" y="127" fill="#C9A882" font-family="Inter" font-size="8" opacity="0.8" letter-spacing="1">FILIÈRE</text>
+                <text x="440" y="127" fill="#C9A882" font-family="Inter" font-size="8" opacity="0.8" letter-spacing="1">NIVEAU</text>
+                <rect x="370" y="290" width="110" height="32" fill="#C9A882" opacity="0.15" rx="4"/>
+                <text x="385" y="311" fill="#C9A882" font-family="Inter" font-size="10" opacity="0.8">JavaFX · Sécurisé</text>
+              </svg>
+            </div>
+            <div class="project__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="project__info">
+            <div class="project__meta">
+              <span class="project__num">03</span>
+              <span class="project__category" data-lang-fr="Application Web · Java" data-lang-en="Web App · Java">Application Web · Java</span>
+            </div>
+            <h3 class="project__title">
+              <span data-lang-fr="Gestion des Évaluations IHEC" data-lang-en="IHEC Grade Management">Gestion des Évaluations IHEC</span>
+            </h3>
+            <p class="project__desc"
+               data-lang-fr="Application web Spring Boot permettant aux étudiants et enseignants de consulter et déposer des évaluations. Système sécurisé avec filtrage par filière, niveau et matière."
+               data-lang-en="Spring Boot web application allowing students and teachers to view and submit evaluations. Secure system with filtering by major, level and subject.">
+              Application web Spring Boot permettant aux étudiants et enseignants de consulter et déposer des évaluations. Système sécurisé avec filtrage par filière, niveau et matière.
+            </p>
+            <div class="project__tags">
+              <span>Java</span><span>Spring Boot</span><span>MySQL</span>
+            </div>
+            <div class="project__links">
+              <a href="https://github.com/farah-jemal/MyJavaProject" target="_blank" rel="noopener"
+                 data-lang-fr="Voir le code" data-lang-en="View code">Voir le code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ░░ SKILLS ░░ -->
+    <section class="skills" id="skills" aria-label="Expertises">
+      <div class="section-header reveal-fade">
+        <span class="section-eyebrow" data-lang-fr="Domaines de maîtrise" data-lang-en="Areas of expertise">Domaines de maîtrise</span>
+        <h2 class="section-title" data-lang-fr="Expertises" data-lang-en="Skills">Expertises</h2>
+      </div>
+
+      <div class="skills__list">
+        <div class="skill-item reveal-up" style="--delay:0s">
+          <span class="skill-item__num">01</span>
+          <div class="skill-item__content">
+            <h3 data-lang-fr="Data & Business Intelligence" data-lang-en="Data & Business Intelligence">Data & Business Intelligence</h3>
+            <p data-lang-fr="SQL, Power BI, DAX, modélisation, visualisation orientée décision"
+               data-lang-en="SQL, Power BI, DAX, data modeling, decision-oriented visualization">SQL, Power BI, DAX, modélisation, visualisation orientée décision</p>
+          </div>
+        </div>
+        <div class="skill-item reveal-up" style="--delay:.08s">
+          <span class="skill-item__num">02</span>
+          <div class="skill-item__content">
+            <h3 data-lang-fr="Programmation" data-lang-en="Programming">Programmation</h3>
+            <p>Python, Java, JavaScript, HTML/CSS, C, SQL, Linux Shell</p>
+          </div>
+        </div>
+        <div class="skill-item reveal-up" style="--delay:.16s">
+          <span class="skill-item__num">03</span>
+          <div class="skill-item__content">
+            <h3>UI/UX Design</h3>
+            <p data-lang-fr="Figma, prototypage, design systems, dashboards ergonomiques"
+               data-lang-en="Figma, prototyping, design systems, ergonomic dashboards">Figma, prototypage, design systems, dashboards ergonomiques</p>
+          </div>
+        </div>
+        <div class="skill-item reveal-up" style="--delay:.24s">
+          <span class="skill-item__num">04</span>
+          <div class="skill-item__content">
+            <h3 data-lang-fr="Intelligence Artificielle" data-lang-en="Artificial Intelligence">Intelligence Artificielle</h3>
+            <p data-lang-fr="Fondamentaux IA, automatisation intelligente, analyse contextuelle"
+               data-lang-en="AI fundamentals, intelligent automation, contextual analysis">Fondamentaux IA, automatisation intelligente, analyse contextuelle</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-grid reveal-fade">
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Power BI</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">Figma</span>
+        <span class="tech-tag">Excel</span>
+        <span class="tech-tag">Git</span>
+        <span class="tech-tag">DAX</span>
+        <span class="tech-tag">HTML/CSS</span>
+        <span class="tech-tag">JavaFX</span>
+        <span class="tech-tag">Jira</span>
+      </div>
+    </section>
+
+    <!-- ░░ ABOUT ░░ -->
+    <section class="about" id="about" aria-label="À propos">
+      <div class="about__inner">
+        <div class="about__left">
+          <div class="section-header reveal-fade">
+            <span class="section-eyebrow" data-lang-fr="À propos" data-lang-en="About">À propos</span>
+            <h2 class="section-title about__big" data-lang-fr="Profil" data-lang-en="Profile">Profil</h2>
+          </div>
+          <div class="about__portrait reveal-up">
+            <div class="portrait__frame">
+              <div class="portrait__inner">
+                <img src="assets/img/portrait.jpg" alt="Portrait de Farah Jemal" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__right">
+          <p class="about__text reveal-fade"
+             data-lang-fr="Étudiante en 3ème année Informatique de Gestion, spécialité Business Intelligence à l'IHEC Carthage — je suis convaincue que la donnée bien racontée change la façon dont les organisations prennent leurs décisions."
+             data-lang-en="3rd-year Information Technology student, specializing in Business Intelligence at IHEC Carthage — I believe that data, when well-told, changes the way organizations make decisions.">
+            Étudiante en 3ème année Informatique de Gestion, spécialité Business Intelligence à l'IHEC Carthage — je suis convaincue que la donnée bien racontée change la façon dont les organisations prennent leurs décisions.
+          </p>
+
+          <p class="about__text reveal-fade"
+             data-lang-fr="J'ai eu la chance de travailler dans des environnements exigeants comme EY Tunisie et la BIAT, où j'ai appris que la rigueur technique ne suffit pas — il faut aussi savoir communiquer, designer et raconter."
+             data-lang-en="I've had the chance to work in demanding environments like EY Tunisia and BIAT, where I learned that technical rigor isn't enough — you also need to communicate, design, and tell a story.">
+            J'ai eu la chance de travailler dans des environnements exigeants comme EY Tunisie et la BIAT, où j'ai appris que la rigueur technique ne suffit pas — il faut aussi savoir communiquer, designer et raconter.
+          </p>
+
+          <div class="about__details reveal-up">
+            <div class="about__detail">
+              <span class="detail-label" data-lang-fr="Formation" data-lang-en="Education">Formation</span>
+              <span class="detail-val">IHEC Carthage — L3 BI</span>
+            </div>
+            <div class="about__detail">
+              <span class="detail-label" data-lang-fr="Langues" data-lang-en="Languages">Langues</span>
+              <span class="detail-val" data-lang-fr="Arabe · Français · Anglais" data-lang-en="Arabic · French · English">Arabe · Français · Anglais</span>
+            </div>
+            <div class="about__detail">
+              <span class="detail-label" data-lang-fr="Disponibilité" data-lang-en="Availability">Disponibilité</span>
+              <span class="detail-val" data-lang-fr="Ouverte aux opportunités" data-lang-en="Open to opportunities">Ouverte aux opportunités</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ EXPERIENCE ░░ -->
+    <section class="experience" id="experience" aria-label="Expérience professionnelle">
+      <div class="section-header reveal-fade">
+        <span class="section-eyebrow" data-lang-fr="Parcours" data-lang-en="Career path">Parcours</span>
+        <h2 class="section-title" data-lang-fr="Expérience" data-lang-en="Experience">Expérience</h2>
+      </div>
+
+      <div class="timeline" role="list">
+        <div class="timeline__line" aria-hidden="true"></div>
+
+        <div class="timeline__item reveal-up" role="listitem">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__date" data-lang-fr="Juil. — Août 2026" data-lang-en="Jul. — Aug. 2026">Juil. — Août 2026</div>
+          <div class="timeline__content">
+            <div class="timeline__role" data-lang-fr="Stagiaire — Innovation & Technologie" data-lang-en="Intern — Innovation & Technology">Stagiaire — Innovation & Technologie</div>
+            <div class="timeline__company">BIAT — Banque Internationale Arabe de Tunisie</div>
+            <ul class="timeline__tasks">
+              <li data-lang-fr="Collaboration avec une équipe internationale sur les activités Q&A, DevOps et digital" data-lang-en="Collaboration with international team on Q&A, DevOps and digital activities">Collaboration avec une équipe internationale sur les activités Q&A, DevOps et digital</li>
+              <li data-lang-fr="Participation aux activités Data et support fonctionnel des applications métier" data-lang-en="Participation in Data activities and functional support for business applications">Participation aux activités Data et support fonctionnel des applications métier</li>
+              <li data-lang-fr="Sensibilisation à la sécurité, au réseau et à l'architecture des systèmes" data-lang-en="Introduction to security, networking and system architecture">Sensibilisation à la sécurité, au réseau et à l'architecture des systèmes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal-up" style="--delay:.1s" role="listitem">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__date" data-lang-fr="Juin 2026" data-lang-en="June 2026">Juin 2026</div>
+          <div class="timeline__content">
+            <div class="timeline__role" data-lang-fr="Stagiaire — IA & Data" data-lang-en="Intern — AI & Data">Stagiaire — IA & Data</div>
+            <div class="timeline__company">EY Tunisie — Ernst & Young</div>
+            <ul class="timeline__tasks">
+              <li data-lang-fr="Participation à des missions de conseil en Intelligence Artificielle" data-lang-en="Participation in Artificial Intelligence consulting missions">Participation à des missions de conseil en Intelligence Artificielle</li>
+              <li data-lang-fr="Contribution à des projets d'automatisation intelligente et de visualisation de données" data-lang-en="Contribution to intelligent automation and data visualization projects">Contribution à des projets d'automatisation intelligente et de visualisation de données</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal-up" style="--delay:.2s" role="listitem">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__date">2025 — 2026</div>
+          <div class="timeline__content">
+            <div class="timeline__role" data-lang-fr="Membre — Département Communication" data-lang-en="Member — Communication Department">Membre — Département Communication</div>
+            <div class="timeline__company">HEC Finance Academy, IHEC Carthage</div>
+            <ul class="timeline__tasks">
+              <li data-lang-fr="Création de contenus visuels et rédactionnels pour un club FinTech" data-lang-en="Creating visual and editorial content for a FinTech club">Création de contenus visuels et rédactionnels pour un club FinTech</li>
+              <li data-lang-fr="Gestion des réseaux sociaux et promotion des événements" data-lang-en="Social media management and event promotion">Gestion des réseaux sociaux et promotion des événements</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs reveal-up">
+        <h3 class="certs__title" data-lang-fr="Certifications" data-lang-en="Certifications">Certifications</h3>
+        <div class="certs__grid">
+          <div class="cert">
+            <span class="cert__year">2025</span>
+            <span class="cert__name">HTML & CSS — Udemy</span>
+          </div>
+          <div class="cert">
+            <span class="cert__year">2024</span>
+            <span class="cert__name">Intro. to AI — NASBA / LinkedIn</span>
+          </div>
+          <div class="cert">
+            <span class="cert__year">2024</span>
+            <span class="cert__name">HTML5, Python & Flask — Udemy</span>
+          </div>
+          <div class="cert">
+            <span class="cert__year">2025</span>
+            <span class="cert__name" data-lang-fr="Sponsoring & Techniques de Vente" data-lang-en="Sponsoring & Sales Techniques">Sponsoring & Techniques de Vente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ CV ░░ -->
+    <section class="cv" id="cv" aria-labelledby="cvTitle">
+      <div class="section-header reveal-fade">
+        <span class="section-eyebrow" data-lang-fr="Curriculum vitae" data-lang-en="Résumé">Curriculum vitae</span>
+        <h2 class="section-title" id="cvTitle" data-lang-fr="Mon CV" data-lang-en="My résumé">Mon CV</h2>
+      </div>
+
+      <div class="cv__grid">
+        <div class="cv__side reveal-up">
+          <p class="cv__lead"
+             data-lang-fr="Parcours, projets et compétences en une page. Consultez-le directement ici ou téléchargez-le au format PDF."
+             data-lang-en="Background, projects and skills on one page. Read it right here or download it as a PDF.">
+            Parcours, projets et compétences en une page. Consultez-le directement ici ou téléchargez-le au format PDF.
+          </p>
+
+          <div class="cv__actions">
+            <a id="cvDownload" class="btn btn--primary"
+               href="assets/cv/farah-jemal-cv-fr.pdf" download="Farah-Jemal-CV-FR.pdf">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span data-lang-fr="Télécharger le CV" data-lang-en="Download résumé">Télécharger le CV</span>
+            </a>
+
+            <a id="cvView" class="btn btn--ghost"
+               href="assets/cv/farah-jemal-cv-fr.pdf" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span data-lang-fr="Ouvrir dans un onglet" data-lang-en="Open in a new tab">Ouvrir dans un onglet</span>
+            </a>
+          </div>
+
+          <p class="cv__note"
+             data-lang-fr="PDF · CV disponible en français (version anglaise à venir)."
+             data-lang-en="PDF · Résumé currently available in French only (English version coming soon).">
+            PDF · CV disponible en français (version anglaise à venir).
+          </p>
+        </div>
+
+        <div class="cv__viewer reveal-up">
+          <iframe id="cvFrame"
+                  src="assets/cv/farah-jemal-cv-fr.pdf#toolbar=0&navpanes=0&view=FitH"
+                  title="Aperçu du CV de Farah Jemal"
+                  loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ CONTACT ░░ -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="contact__inner">
+        <div class="contact__header reveal-fade">
+          <span class="section-eyebrow" data-lang-fr="Travaillons ensemble" data-lang-en="Let's work together">Travaillons ensemble</span>
+          <h2 class="contact__big" data-lang-fr="Construisons quelque chose de remarquable." data-lang-en="Let's build something remarkable.">
+            Construisons quelque chose de remarquable.
+          </h2>
+        </div>
+
+        <div class="contact__body reveal-up">
+          <a href="mailto:farahjmal45@gmail.com" class="contact__email magnetic" aria-label="Envoyer un email à Farah Jemal">
+            <span class="email-text">farahjmal45@gmail.com</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+
+          <div class="contact__links">
+            <a href="https://linkedin.com/in/farah-jemal-0a431933b" target="_blank" rel="noopener" class="contact__link magnetic">
+              LinkedIn
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a href="https://github.com/farah-jemal" target="_blank" rel="noopener" class="contact__link magnetic">
+              GitHub
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a href="tel:+21626419013" class="contact__link magnetic">
+              +216 26 419 013
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__copy">© 2026 — Farah Jemal</span>
+      <span class="footer__made" data-lang-fr="Conçu & développé avec intention." data-lang-en="Designed & developed with intention.">Conçu & développé avec intention.</span>
+      <div class="footer__socials">
+        <a href="https://linkedin.com/in/farah-jemal-0a431933b" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+        <a href="https://github.com/farah-jemal" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
